@@ -9,8 +9,6 @@ import RecipeShowContainer from './recipes/recipe_show_container';
 import RecipesIndexContainer from '../components/recipes/recipes_index_container'
 
 const App = () => {
-  console.log(process.env)
-
   return(
     <div id='app' className='min-h-screen bg-yellow-700 bg-opacity-40'>
       <HeaderContainer />

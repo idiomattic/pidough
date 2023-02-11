@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router";
 import _ from 'lodash';
 
-const SessionForm = ({ action, hideModal, clearErrors, errors = [], formType, otherForm }) => {
+const SessionForm = ({ action, clearErrors, errors, formType, otherForm }) => {
   const [form, setForm] = useState({
     username: '',
     password: '',
@@ -15,14 +15,7 @@ const SessionForm = ({ action, hideModal, clearErrors, errors = [], formType, ot
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // clearErrors();
-    const res = await action(form)
-    console.log({errors})
-
-    if (_.isEmpty(errors)) {
-      hideModal();
-      return;
-    }
+    await action(form)
   }
 
   const update = (field) => {

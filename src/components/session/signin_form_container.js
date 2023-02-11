@@ -2,18 +2,15 @@ import React from "react";
 import { connect } from "react-redux";
 import SessionForm from "./session_form";
 import { signin, clearErrors } from "../../actions/session_actions";
-import { hideModal, displayModal } from "../../actions/modal_actions";
+import { displayModal } from "../../actions/modal_actions";
 
-const mSTP = ({ errors }) => {
-  console.log('in mSTP', {errors})
-  return({
+const mSTP = ({ errors }) => ({
   formType: 'Sign In',
   errors: errors.session
-})}
+})
 
 const mDTP = dispatch => ({
   action: user => dispatch(signin(user)),
-  hideModal: () => dispatch(hideModal()),
   clearErrors: () => dispatch(clearErrors()),
   otherForm: (
     <div className=''>

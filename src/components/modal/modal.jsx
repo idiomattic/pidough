@@ -1,8 +1,6 @@
 import React from "react";
-// import DropdownModalContainer from "../dropdown_modal/dropdown_modal_container";
 import SignInFormContainer from "../session/signin_form_container";
 import SignUpFormContainer from '../session/signup_form_container'
-// import CommentsModalContainer from "../comments_modal/comments_modal_container";
 
 function Modal({modal, hideModal}) {
   if (!modal) {
