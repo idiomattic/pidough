@@ -27,7 +27,7 @@ const Header = props => {
         <header className='flex justify-between h-10 mt-7 mb-4'>
           <h2 className='font-bold text-3xl cursor-pointer' onClick={() => history.push({pathname: '/'})}>PiDough</h2>
           <div className='flex align-middle'>
-            {rightNav}
+            {process.env.NODE_ENV === 'development' && rightNav}
           </div>
         </header> 
       </div>

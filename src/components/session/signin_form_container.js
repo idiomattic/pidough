@@ -1,18 +1,20 @@
 import React from "react";
 import { connect } from "react-redux";
 import SessionForm from "./session_form";
-import { signin } from "../../actions/session_actions";
+import { signin, clearErrors } from "../../actions/session_actions";
 import { hideModal, displayModal } from "../../actions/modal_actions";
 
-const mSTP = ({ errors }) => ({
+const mSTP = ({ errors }) => {
+  console.log('in mSTP', {errors})
+  return({
   formType: 'Sign In',
   errors: errors.session
-})
+})}
 
 const mDTP = dispatch => ({
   action: user => dispatch(signin(user)),
   hideModal: () => dispatch(hideModal()),
-  // clearErrors: () => dispatch(clearErrors()),
+  clearErrors: () => dispatch(clearErrors()),
   otherForm: (
     <div className=''>
       No account?

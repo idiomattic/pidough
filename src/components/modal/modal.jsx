@@ -9,29 +9,13 @@ function Modal({modal, hideModal}) {
     return null;
   }
   let component
-  let backgroundClass
-  let childClass
   switch (modal) {
     case 'Sign In':
       component = <SignInFormContainer />
-      backgroundClass = 'modal-background'
-      childClass = 'modal-child'
       break
     case 'Sign Up':
       component = <SignUpFormContainer />
-      backgroundClass = 'modal-background'
-      childClass = 'modal-child'
       break
-    // case 'Dropdown':
-    //   component = <DropdownModalContainer />
-    //   backgroundClass = 'dropdown modal-background'
-    //   childClass = 'dropdown modal-child'
-    //   break
-    // case 'Comments':
-    //   component = <CommentsModalContainer />
-    //   backgroundClass = 'comments modal-background'
-    //   childClass = 'comments modal-child'
-    //   break
     default:
       return null;
   }

@@ -206,7 +206,7 @@ class RecipeShow extends React.Component {
   }
 
   recipeNav() { // dlete button for owner, and bookmark button eventually
-    let { currentUser, recipe } = this.props
+    let { currentUser = {}, recipe } = this.props
     let deleteButton = currentUser.id !== recipe.authorId ? null
       : <span className="cursor-pointer font-light text-gray-600 hover:text-red-700 hover:font-bold"
           onClick={() => this.deleteAndRedirect(recipe._id)} >Delete</span> 
