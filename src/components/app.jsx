@@ -1,6 +1,5 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { ProtectedRoute } from '../util/route_util';
 import '../index.css'
 import Header from './header';
 import RecipeShowContainer from './recipes/recipe_show_container';

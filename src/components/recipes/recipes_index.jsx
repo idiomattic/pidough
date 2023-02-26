@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react'
+import RECIPES from '../../data/recipes'
 
-function RecipesIndexItem(props) {
-  let { recipe, history } = props
-  let truncatedBody = recipe.body.split('. ')[0] + '...'
+const RecipesIndexItem = ({ recipe, history }) => {
+  const truncatedBody = recipe.body.split('. ')[0] + '...';
+
   return (
     <div className='px-4 w-[30rem] mt-2 cursor-pointer' onClick={() => history.push(`/recipes/${recipe._id}`)}>
       <div className='bg-white px-4 py-3 border-2 h-full border-yellow-900 rounded-sm'>
@@ -16,13 +17,11 @@ function RecipesIndexItem(props) {
   )
 }
 
-function RecipesIndex(props) {
-  useEffect(() => props.getAllRecipes(), [])
-
+const RecipesIndex = () => {
   return (
     <div className='mt-7 w-full'>
       <ul className='flex flex-wrap justify-center -mt-4 w-full mx-auto px-2'>
-        {  props.recipes.map((recipe, i) => <RecipesIndexItem key={i} recipe={recipe}/>) }
+        {  RECIPES.map((recipe, i) => <RecipesIndexItem key={i} recipe={recipe}/>) }
       </ul>
     </div>
   )

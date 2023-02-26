@@ -1,4 +1,4 @@
-[
+const RECIPES = [
   {
     "_id":"61e4d2fa8763ca1001987e1e",
     "title":"Foolproof Pan Pizza (Kenji)",
@@ -131,3 +131,5 @@
     "__v":0
   }
 ]
+
+export default RECIPES;
