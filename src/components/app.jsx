@@ -1,22 +1,19 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { ProtectedRoute } from '../util/route_util';
 import '../index.css'
-import HeaderContainer from '../components/header/header_container'
-import Modal from '../components/modal/modal_container'
-import CreateRecipeFormContainer from '../components/recipes/create_recipe_form_container'
+import Header from './header';
 import RecipeShowContainer from './recipes/recipe_show_container';
 import RecipesIndexContainer from '../components/recipes/recipes_index_container'
 
 const App = () => {
   return(
     <div id='app' className='min-h-screen bg-yellow-700 bg-opacity-40'>
-      <HeaderContainer />
+      <Header />
       <div className='flex flex-col justify-between min-h-[95vh]'>
         <div className='relative pb-6 overflow-hidden'>
           <Switch>
             <Route exact path='/' component={RecipesIndexContainer}/>
-            <ProtectedRoute exact path='/recipes/create' component={CreateRecipeFormContainer}/>
             <Route path='/recipes/:recipeId' component={RecipeShowContainer}/>
           </Switch>
         </div>
@@ -36,7 +33,6 @@ const App = () => {
           </div>
         </footer>
       </div>
-      <Modal />
     </div>
   )
 }
