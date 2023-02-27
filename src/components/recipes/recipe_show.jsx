@@ -1,5 +1,7 @@
+import _ from "lodash"
 import React from "react"
 import { withRouter } from "react-router"
+import RECIPES from "../../data/recipes"
 
 class RecipeShow extends React.Component {
   constructor(props) {
@@ -10,7 +12,8 @@ class RecipeShow extends React.Component {
       pizzaSize: '12"',
       crustThickness: 'thin',
       unitRecipeData: null,
-      recipeData: null
+      recipeData: null,
+      recipe: null
     }
     this.update = this.update.bind(this)
   }
@@ -85,13 +88,14 @@ class RecipeShow extends React.Component {
   }
 
   componentDidMount() {
-    let {recipeId, recipe, getRecipe, history} = this.props
-    getRecipe(recipeId)
-      .then(res => {
-        this.updateRecipeAmounts(res.recipe.data)
-        this.setState({ unitRecipeData: res.recipe.data })
-      },
-        err => history.push('/feed'))
+    const recipeId = _.get(this.props, 'match.params.recipeId')
+    const recipe = _.find(RECIPES, { _id: recipeId })
+    console.log(recipe)
+    this.updateRecipeAmounts(recipe.data)
+    this.setState({ 
+      unitRecipeData: recipe.data,
+      recipe
+    })
   }
 
   changeKeyName(key) {
@@ -204,30 +208,17 @@ class RecipeShow extends React.Component {
     deleteRecipe(recipeId)
       .then(history.push('/'))
   }
-
-  recipeNav() { // dlete button for owner, and bookmark button eventually
-    let { currentUser = {}, recipe } = this.props
-    let deleteButton = currentUser.id !== recipe.authorId ? null
-      : <span className="cursor-pointer font-light text-gray-600 hover:text-red-700 hover:font-bold"
-          onClick={() => this.deleteAndRedirect(recipe._id)} >Delete</span> 
-    return (<div className="flex items-center justify-between">
-      {deleteButton}
-    </div>)
-  }
   
   render() {
-    let { recipe } = this.props
+    let { recipe } = this.state;
     if (!recipe || !recipe.authorId) {
       return null
     }
-    let pizzasString = this.state.numPizzas > 1 ? 'pizzas' : 'pizza'
+    const pizzasString = this.state.numPizzas > 1 ? 'pizzas' : 'pizza'
     return(
       <div className='w-full mx-auto px-4'>
         <div className="mt-7 bg-white max-w-2xl px-4 mx-auto border-2 border-yellow-900 rounded-sm">
-          <div className='flex items-center justify-between'>
-            <h2 className='mt-2 text-xl font-bold'>{recipe.title}</h2>
-            {this.recipeNav()}
-          </div>
+          <h2 className='mt-2 text-xl font-bold'>{recipe.title}</h2>
           <div>{recipe.authorName}</div>
           <p className="my-2 italic">{recipe.originalProportion}</p>
         </div>

@@ -2,8 +2,8 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import '../index.css'
 import Header from './header';
-import RecipeShowContainer from './recipes/recipe_show_container';
-import RecipesIndexContainer from '../components/recipes/recipes_index_container'
+import RecipesIndex from './recipes/recipes_index';
+import RecipeShow from './recipes/recipe_show';
 
 const App = () => {
   return(
@@ -12,8 +12,8 @@ const App = () => {
       <div className='flex flex-col justify-between min-h-[95vh]'>
         <div className='relative pb-6 overflow-hidden'>
           <Switch>
-            <Route exact path='/' component={RecipesIndexContainer}/>
-            <Route path='/recipes/:recipeId' component={RecipeShowContainer}/>
+            <Route exact path='/' component={RecipesIndex}/>
+            <Route path='/recipes/:recipeId' component={RecipeShow}/>
           </Switch>
         </div>
         <footer className='bg-yellow-900 relative bottom-0 h-20 w-screen'>
