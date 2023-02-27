@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pidough/static/css/main.23e3d2cd.css",
+    "main.js": "/pidough/static/js/main.0d85bd59.js",
+    "index.html": "/pidough/index.html",
+    "main.23e3d2cd.css.map": "/pidough/static/css/main.23e3d2cd.css.map",
+    "main.0d85bd59.js.map": "/pidough/static/js/main.0d85bd59.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.23e3d2cd.css",
+    "static/js/main.0d85bd59.js"
+  ]
+}

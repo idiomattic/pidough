@@ -21,7 +21,7 @@ const App = () => {
             <div className='flex-shrink-0 w-64 mx-auto text-center '>
               <h3 className='text-white text-opacity-70 italic font-light mt-3'>More from Matthew Lese</h3>
               <div className='inline-flex mx-auto mt-2'>
-                <a href="https://github.com/matthewlese" className='mr-3'>
+                <a href="https://github.com/idiomattic" className='mr-3'>
                   <div className='text-white text-opacity-70 font-light cursor-pointer hover:italic'>GitHub</div>
                 </a>
                 <a href="https://www.linkedin.com/in/matthewlese/" className='linkedin-link'>
